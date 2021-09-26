@@ -19,8 +19,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('listings', 'ListingsController');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
