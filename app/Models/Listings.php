@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Listings extends Model
 {
-    use HasFactory;
+    public function user(){
+        return $this->belongsTo('App\User'); 
+    }
 }

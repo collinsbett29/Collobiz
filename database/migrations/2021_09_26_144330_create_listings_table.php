@@ -14,7 +14,14 @@ class CreateListingsTable extends Migration
     public function up()
     {
         Schema::create('listings', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->string('name');
+            $table->string('address');
+            $table->string('website');
+            $table->string('email');
+            $table->integer('phone')->unsigned();
+            $table->string('bio');
             $table->timestamps();
         });
     }
@@ -25,7 +32,7 @@ class CreateListingsTable extends Migration
      * @return void
      */
     public function down()
-    {
+    { 
         Schema::dropIfExists('listings');
     }
 }
