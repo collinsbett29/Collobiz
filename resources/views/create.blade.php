@@ -14,19 +14,31 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <form>
+                    <form method="post" action="/listings">
+                    @csrf
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <label for="name">Enter your name</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label for="address">Enter your address</label>
+                            <input type="text" class="form-control" name="address" id="adress" placeholder="Enter address">
                         </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        <div class="form-group">
+                            <label for="website">Enter your website</label>
+                            <input type="text" class="form-control" name="website" id="website" placeholder="Enter address">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Enter your email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Enter your phone</label>
+                            <input type="number" class="form-control" name="phone" id="phone" placeholder="Enter phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Enter your bio</label>
+                            <input type="text" class="form-control" name="bio" id="bio" placeholder="Enter bio">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
