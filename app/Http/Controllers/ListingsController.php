@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\support\Facades\Auth;
+use App\Models\Listings;
 
 class ListingsController extends Controller
 {
@@ -42,6 +44,18 @@ class ListingsController extends Controller
             'phone' => 'required|phone',
             'bio' => 'required',
         ]);
+
+        $listings = new Listing();
+        $listings->user_id = Auth::id;
+        $listings->name = $request->input('name');
+        $listings->address = $request->input('address');
+        $listings->website = $request->input('website');
+        $listings->email = $request->input('email');
+        $listings->phone = $request->input('phone');
+        $listings->bio = $request->input('bio');
+        $listings->save(); 
+
+        return redirect()->to('/home')->with('success', 'Listing created successfully!');
     }
 
     /**
